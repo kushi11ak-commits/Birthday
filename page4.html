@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Final Surprise ❤️</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100svh;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  background:
+    linear-gradient(135deg,
+      #fff4f8,
+      #ffe1ec,
+      #ffd5e5);
+
+  color: #704357;
+
+  overflow-x: hidden;
+}
+
+.container {
+
+  width: 100%;
+
+  min-height: 100svh;
+
+  padding: 35px 18px 50px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+.title {
+
+  color: #e91e63;
+
+  font-size: clamp(32px, 9vw, 55px);
+
+  margin-bottom: 10px;
+
+  animation: appear 1s ease;
+}
+
+.subtitle {
+
+  color: #8a5268;
+
+  font-size: clamp(17px, 4.5vw, 22px);
+
+  margin-bottom: 25px;
+
+  animation: appear 1s ease .2s both;
+}
+
+/* PHOTO */
+
+.photo {
+
+  width: min(92vw, 500px);
+
+  max-height: 65vh;
+
+  object-fit: contain;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 15px 35px rgba(100,40,70,.20);
+
+  animation:
+    photoAppear 1.2s ease .3s both;
+}
+
+/* MESSAGE */
+
+.message-card {
+
+  width: min(94vw, 560px);
+
+  margin-top: 28px;
+
+  padding: 28px 20px;
+
+  background: rgba(255,255,255,.82);
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 10px 30px rgba(120,50,80,.13);
+
+  animation:
+    appear 1s ease .7s both;
+}
+
+.message {
+
+  color: #704357;
+
+  font-size: clamp(18px, 4.8vw, 24px);
+
+  line-height: 1.7;
+}
+
+.message strong {
+
+  color: #e91e63;
+
+  font-size: clamp(23px, 6vw, 32px);
+}
+
+.heart {
+
+  margin-top: 18px;
+
+  color: #e91e63;
+
+  font-size: clamp(42px, 11vw, 65px);
+
+  animation:
+    heartbeat 1.5s ease-in-out infinite;
+}
+
+.final {
+
+  margin-top: 25px;
+
+  color: #e91e63;
+
+  font-size: clamp(18px, 5vw, 25px);
+
+  font-style: italic;
+
+  line-height: 1.5;
+
+  animation:
+    appear 1s ease 1s both;
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+
+  position: fixed;
+
+  color: #e91e63;
+
+  font-size: 30px;
+
+  opacity: 0;
+
+  animation: float 7s linear infinite;
+}
+
+.h1 {
+  left: 8%;
+  bottom: -40px;
+}
+
+.h2 {
+  left: 30%;
+  bottom: -40px;
+  animation-delay: 2s;
+}
+
+.h3 {
+  right: 25%;
+  bottom: -40px;
+  animation-delay: 1s;
+}
+
+.h4 {
+  right: 8%;
+  bottom: -40px;
+  animation-delay: 3s;
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes photoAppear {
+
+  from {
+    opacity: 0;
+    transform: scale(.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+@keyframes heartbeat {
+
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+
+}
+
+@keyframes float {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg)
+      scale(.7);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: .55;
+  }
+
+  80% {
+    opacity: .55;
+  }
+
+  100% {
+    transform:
+      translateY(-115svh)
+      rotate(360deg)
+      scale(1.1);
+
+    opacity: 0;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="floating-heart h1">♡</div>
+<div class="floating-heart h2">♡</div>
+<div class="floating-heart h3">♡</div>
+<div class="floating-heart h4">♡</div>
+
+<main class="container">
+
+  <h1 class="title">
+    Final Surprise ❤️
+  </h1>
+
+  <p class="subtitle">
+    One last thing I want you to know... 🥹
+  </p>
+
+  <img
+    class="photo"
+    src="IMG_20260925_235351_029.jpg"
+    alt="Our special memory">
+
+  <section class="message-card">
+
+    <p class="message">
+
+      <strong>Happy 25th Birthday, Kiran! ❤️</strong>
+
+      <br><br>
+
+      I don't know what the future has
+      written for us, but I'm really grateful
+      that our paths crossed.
+
+      <br><br>
+
+      Thank you for being a beautiful part
+      of my life, for all the memories we've
+      created, and for all the little moments
+      that became special simply because
+      they were with you.
+
+      <br><br>
+
+      On your birthday, I just wish you
+      happiness, peace, success, and
+      everything you've ever wished for.
+
+      <br><br>
+
+      Keep smiling. Keep dreaming.
+      Keep being the person you are.
+
+      <br><br>
+
+      And no matter how many birthdays
+      come and go...
+
+      <br><br>
+
+      <strong>
+        I hope I get to celebrate many
+        more of them with you. ❤️
+      </strong>
+
+    </p>
+
+    <div class="heart">
+      ❤️
+    </div>
+
+  </section>
+
+  <p class="final">
+
+    Here's to you, your dreams,
+    and all the beautiful chapters ahead. ♡
+
+    <br><br>
+
+    Happy Birthday, once again. ❤️
+
+  </p>
+
+</main>
+
+</body>
+</html>
