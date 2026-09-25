@@ -1,0 +1,620 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>Birthday Surprise ❤️</title><style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100svh;
+  background: linear-gradient(135deg, #ffe6f0, #fff5f8, #ffe1ec);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Main */
+.container {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.title {
+  font-size: clamp(32px, 9vw, 70px);
+  color: #e91e63;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 4px 12px rgba(233,30,99,.2);
+  animation: titleFloat 2.5s ease-in-out infinite;
+}
+
+.subtitle {
+  font-size: clamp(16px, 4.5vw, 25px);
+  color: #8a5268;
+  margin-bottom: 40px;
+}
+
+/* Scene */
+.scene {
+  width: min(92vw, 520px);
+  height: min(55vw, 310px);
+  min-height: 220px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Heart */
+.heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(90px, 26vw, 165px);
+  z-index: 3;
+  filter: drop-shadow(0 8px 12px rgba(233,30,99,.3));
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Arrow */
+.arrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(45px, 13vw, 78px);
+  z-index: 6;
+  animation: shootArrow 3.5s ease-in-out infinite;
+}
+
+/* Impact flash */
+.impact {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 7;
+  animation: impactFlash 3.5s ease-in-out infinite;
+}
+
+/* Heart pieces */
+.piece {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: clamp(22px, 6vw, 38px);
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Individual explosion directions */
+.p1 {
+  animation: piece1 3.5s ease-in-out infinite;
+}
+
+.p2 {
+  animation: piece2 3.5s ease-in-out infinite;
+}
+
+.p3 {
+  animation: piece3 3.5s ease-in-out infinite;
+}
+
+.p4 {
+  animation: piece4 3.5s ease-in-out infinite;
+}
+
+.p5 {
+  animation: piece5 3.5s ease-in-out infinite;
+}
+
+.p6 {
+  animation: piece6 3.5s ease-in-out infinite;
+}
+
+/* Crack lines */
+.crack {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 100px;
+  background: white;
+  border-radius: 5px;
+  transform: translate(-50%, -50%) rotate(25deg);
+  z-index: 4;
+  opacity: 0;
+  animation: crackShow 3.5s ease-in-out infinite;
+}
+
+/* Sparkles */
+.sparkle {
+  position: absolute;
+  font-size: clamp(18px, 5vw, 32px);
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.s1 {
+  top: 8%;
+  left: 15%;
+}
+
+.s2 {
+  top: 15%;
+  right: 15%;
+  animation-delay: .5s;
+}
+
+.s3 {
+  bottom: 8%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.s4 {
+  bottom: 12%;
+  right: 20%;
+  animation-delay: 1.5s;
+}
+
+/* Flowers */
+.flower {
+  position: absolute;
+  font-size: clamp(25px, 7vw, 45px);
+  z-index: 1;
+  animation: flowerFloat linear infinite;
+  pointer-events: none;
+}
+
+.f1 {
+  left: 5%;
+  bottom: -60px;
+  animation-duration: 8s;
+}
+
+.f2 {
+  left: 25%;
+  bottom: -60px;
+  animation-duration: 10s;
+  animation-delay: 2s;
+}
+
+.f3 {
+  right: 20%;
+  bottom: -60px;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+
+.f4 {
+  right: 5%;
+  bottom: -60px;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+/* Button */
+.continue-btn {
+  border: none;
+  outline: none;
+  background: #e91e63;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(233,30,99,.3);
+  transition: transform .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.continue-btn:active {
+  transform: scale(.94);
+}
+
+@media (hover:hover) {
+  .continue-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+  }
+}
+
+/* Heartbeat */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+/* Arrow shoots into heart */
+@keyframes shootArrow {
+
+  0% {
+    left: 0;
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  45% {
+    left: 43%;
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  /* HIT */
+  50% {
+    left: 50%;
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg) scale(1.12);
+  }
+
+  54% {
+    left: 50%;
+    opacity: 0;
+    transform: translateY(-50%) rotate(0deg) scale(.7);
+  }
+
+  100% {
+    left: 0;
+    opacity: 0;
+  }
+}
+
+/* Heart disappears at impact */
+@keyframes heartHit {
+
+  0%, 43% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  47% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
+
+  51% {
+    transform: translate(-50%, -50%) scale(1.25);
+    opacity: 0;
+  }
+
+  65% {
+    opacity: 0;
+  }
+
+  75%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.heart {
+  animation:
+    heartbeat 1.5s ease-in-out infinite,
+    heartHit 3.5s ease-in-out infinite;
+}
+
+/* Crack */
+@keyframes crackShow {
+
+  0%, 44% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(25deg) scale(0);
+  }
+
+  48% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(25deg) scale(1);
+  }
+
+  55% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(25deg) scale(1.3);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Impact flash */
+@keyframes impactFlash {
+
+  0%, 46% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  49% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  55% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Explosion pieces */
+@keyframes piece1 {
+
+  0%, 47% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0,0) rotate(0deg) scale(.3);
+  }
+
+  52% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(-110px,-80px) rotate(-180deg) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(-160px,-120px) rotate(-360deg);
+  }
+}
+
+@keyframes piece2 {
+
+  0%, 47% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0,0) rotate(0deg) scale(.3);
+  }
+
+  52% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(120px,-70px) rotate(180deg) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(170px,-110px) rotate(360deg);
+  }
+}
+
+@keyframes piece3 {
+
+  0%, 47% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0,0) rotate(0deg) scale(.3);
+  }
+
+  52% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(-130px,70px) rotate(-180deg) scale(.9);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(-180px,110px) rotate(-360deg);
+  }
+}
+
+@keyframes piece4 {
+
+  0%, 47% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0,0) rotate(0deg) scale(.3);
+  }
+
+  52% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(125px,75px) rotate(180deg) scale(.9);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(175px,120px) rotate(360deg);
+  }
+}
+
+@keyframes piece5 {
+
+  0%, 47% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0,0) rotate(0deg) scale(.3);
+  }
+
+  52% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(-30px,-125px) rotate(-220deg) scale(.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(-50px,-170px) rotate(-400deg);
+  }
+}
+
+@keyframes piece6 {
+
+  0%, 47% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0,0) rotate(0deg) scale(.3);
+  }
+
+  52% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(40px,120px) rotate(220deg) scale(.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(60px,170px) rotate(400deg);
+  }
+}
+
+/* Sparkles */
+@keyframes sparkle {
+
+  0%,100% {
+    transform: scale(.7);
+    opacity: .3;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* Flowers */
+@keyframes flowerFloat {
+
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-115svh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes titleFloat {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Small phones */
+@media (max-height:650px) {
+
+  .subtitle {
+    margin-bottom: 20px;
+  }
+
+  .scene {
+    min-height: 170px;
+    height: 40vw;
+  }
+
+  .continue-btn {
+    padding: 12px 25px;
+  }
+}
+
+/* Landscape */
+@media (orientation:landscape) and (max-height:600px) {
+
+  .container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: clamp(28px,7vh,45px);
+    margin-bottom: 5px;
+  }
+
+  .subtitle {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  .scene {
+    height: 40vh;
+    min-height: 130px;
+  }
+
+  .heart {
+    font-size: 80px;
+  }
+
+  .continue-btn {
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+}
+</style></head><body><!-- Floating flowers --><div class="flower f1">🌸</div>
+<div class="flower f2">🌷</div>
+<div class="flower f3">🌸</div>
+<div class="flower f4">🌹</div><main class="container"><h1 class="title">Birthday Surprise ❤️</h1><p class="subtitle">
+Something special is waiting for you...
+</p><section class="scene"><div class="sparkle s1">✨</div>
+<div class="sparkle s2">💫</div>
+<div class="sparkle s3">✨</div>
+<div class="sparkle s4">💖</div><!-- Arrow --><div class="arrow">🏹</div><!-- Heart --><div class="heart">❤️</div><!-- Crack --><div class="crack"></div><!-- Impact --><div class="impact"></div><!-- Heart pieces --><div class="piece p1">💔</div>
+<div class="piece p2">❤️</div>
+<div class="piece p3">💗</div>
+<div class="piece p4">❤️</div>
+<div class="piece p5">💖</div>
+<div class="piece p6">💕</div></section><button class="continue-btn" onclick="goToPage2()">
+Tap for the surprise 💕
+</button></main><script>
+function goToPage2() {
+  window.location.href = "page2.html";
+}
+</script></body>
+</html>
