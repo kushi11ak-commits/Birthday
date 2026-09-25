@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Three Little Surprises 🎁</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100svh;
+  overflow: hidden;
+
+  font-family: Arial, sans-serif;
+
+  background:
+    linear-gradient(135deg,
+      #fff3f8,
+      #ffe0ec,
+      #ffd5e5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  min-height: 100svh;
+
+  padding: 25px 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* Heading */
+
+h1 {
+  color: #e91e63;
+
+  font-size: clamp(30px, 8vw, 55px);
+
+  margin-bottom: 8px;
+
+  animation: titleIn 1s ease-out;
+}
+
+.subtitle {
+  color: #8a5268;
+
+  font-size: clamp(15px, 4vw, 20px);
+
+  margin-bottom: 25px;
+}
+
+/* Boxes */
+
+.boxes {
+  width: 100%;
+  max-width: 600px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: clamp(10px, 4vw, 25px);
+}
+
+.box {
+  width: clamp(90px, 26vw, 150px);
+  height: clamp(110px, 31vw, 170px);
+
+  border-radius: 20px;
+
+  background: #e91e63;
+
+  position: relative;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow:
+    0 12px 25px rgba(233,30,99,.25);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.box:active {
+  transform: scale(.92);
+}
+
+@media (hover:hover) {
+  .box:hover {
+    transform: translateY(-8px) scale(1.04);
+
+    box-shadow:
+      0 18px 30px rgba(233,30,99,.3);
+  }
+}
+
+/* Gift ribbon */
+
+.box::before {
+  content: "";
+
+  position: absolute;
+
+  width: 20%;
+
+  height: 100%;
+
+  background: #ffd1df;
+
+  left: 40%;
+
+  top: 0;
+}
+
+.box::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 18%;
+
+  background: #ffd1df;
+
+  left: 0;
+
+  top: 41%;
+}
+
+/* Gift bow */
+
+.bow {
+  position: absolute;
+
+  top: -20px;
+
+  font-size: clamp(35px, 9vw, 55px);
+
+  z-index: 3;
+}
+
+/* Number */
+
+.number {
+  position: relative;
+
+  z-index: 5;
+
+  color: white;
+
+  font-size: clamp(28px, 8vw, 48px);
+
+  font-weight: bold;
+}
+
+/* Revealed message */
+
+.reveal {
+  min-height: 65px;
+
+  margin-top: 25px;
+
+  width: min(90vw, 500px);
+
+  color: #e91e63;
+
+  font-size: clamp(17px, 4.5vw, 23px);
+
+  font-weight: bold;
+
+  line-height: 1.4;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity .4s ease,
+    transform .4s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Next */
+
+.next {
+  display: inline-block;
+
+  margin-top: 10px;
+
+  padding: 13px 30px;
+
+  border-radius: 50px;
+
+  background: #e91e63;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 8px 20px rgba(233,30,99,.3);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity .4s ease,
+    transform .2s ease;
+}
+
+.next.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.next:active {
+  transform: scale(.94);
+}
+
+/* Floating hearts */
+
+.heart {
+  position: absolute;
+
+  color: #e91e63;
+
+  font-size: 30px;
+
+  opacity: 0;
+
+  animation: float 8s linear infinite;
+}
+
+.h1 {
+  left: 8%;
+  bottom: -50px;
+}
+
+.h2 {
+  left: 30%;
+  bottom: -50px;
+  animation-delay: 2s;
+}
+
+.h3 {
+  right: 25%;
+  bottom: -50px;
+  animation-delay: 1s;
+}
+
+.h4 {
+  right: 7%;
+  bottom: -50px;
+  animation-delay: 3s;
+}
+
+/* Animations */
+
+@keyframes titleIn {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: .6;
+  }
+
+  80% {
+    opacity: .6;
+  }
+
+  100% {
+    transform:
+      translateY(-115svh)
+      rotate(360deg);
+
+    opacity: 0;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 360px) {
+
+  .boxes {
+    gap: 7px;
+  }
+
+  .box {
+    width: 85px;
+    height: 105px;
+  }
+
+  .bow {
+    top: -17px;
+  }
+
+  .reveal {
+    margin-top: 18px;
+  }
+}
+
+/* Short phones */
+
+@media (max-height: 650px) {
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    margin-bottom: 15px;
+  }
+
+  .box {
+    height: 105px;
+  }
+
+  .reveal {
+    margin-top: 15px;
+    min-height: 45px;
+    font-size: 16px;
+  }
+
+  .next {
+    padding: 10px 24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+
+<div class="heart h1">♡</div>
+<div class="heart h2">♡</div>
+<div class="heart h3">♡</div>
+<div class="heart h4">♡</div>
+
+
+<main class="container">
+
+  <h1>
+    Three Little Surprises 🎁
+  </h1>
+
+  <p class="subtitle">
+    Choose a box... ❤️
+  </p>
+
+
+  <div class="boxes">
+
+    <!-- Box 1 -->
+
+    <div class="box" onclick="openBox(1)">
+
+      <div class="bow">🎀</div>
+
+      <div class="number">
+        1
+      </div>
+
+    </div>
+
+
+    <!-- Box 2 -->
+
+    <div class="box" onclick="openBox(2)">
+
+      <div class="bow">🎀</div>
+
+      <div class="number">
+        2
+      </div>
+
+    </div>
+
+
+    <!-- Box 3 -->
+
+    <div class="box" onclick="openBox(3)">
+
+      <div class="bow">🎀</div>
+
+      <div class="number">
+        3
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Surprise message -->
+
+  <div
+    id="reveal"
+    class="reveal">
+  </div>
+
+
+  <!-- Continue -->
+
+  <a
+    id="next"
+    class="next"
+    href="page4.html">
+
+    Final Surprise 🎁❤️
+
+  </a>
+
+</main>
+
+
+<script>
+
+let opened = [];
+
+function openBox(number) {
+
+  const reveal = document.getElementById("reveal");
+  const next = document.getElementById("next");
+
+  const messages = {
+
+    1:
+      "You are one of the most special people in my life. ❤️",
+
+    2:
+      "Every moment with you is a memory worth keeping. 💕",
+
+    3:
+      "And this is only the beginning of your birthday surprise! 🎉❤️"
+
+  };
+
+  if (!opened.includes(number)) {
+    opened.push(number);
+  }
+
+  reveal.innerHTML = messages[number];
+
+  reveal.classList.remove("show");
+
+  setTimeout(function() {
+    reveal.classList.add("show");
+  }, 50);
+
+
+  /* Show final button after all 3 boxes */
+
+  if (opened.length === 3) {
+
+    setTimeout(function() {
+      next.classList.add("show");
+    }, 500);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
