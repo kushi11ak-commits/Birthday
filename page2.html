@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Happy Birthday Kiran ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100svh;
+  overflow: hidden;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  background:
+    linear-gradient(135deg,
+      #fff4f8,
+      #ffe1ec,
+      #ffd5e5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+/* Background hearts */
+
+.heart {
+  position: absolute;
+
+  color: #e91e63;
+
+  font-size: clamp(25px, 7vw, 45px);
+
+  opacity: 0;
+
+  animation: floatHeart 7s linear infinite;
+}
+
+.heart1 {
+  left: 8%;
+  bottom: -60px;
+}
+
+.heart2 {
+  left: 28%;
+  bottom: -60px;
+  animation-delay: 2s;
+}
+
+.heart3 {
+  right: 25%;
+  bottom: -60px;
+  animation-delay: 1s;
+}
+
+.heart4 {
+  right: 7%;
+  bottom: -60px;
+  animation-delay: 3s;
+}
+
+/* Main */
+
+.container {
+  width: 100%;
+  min-height: 100svh;
+
+  padding:
+    25px
+    20px
+    max(25px, env(safe-area-inset-bottom));
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 5;
+}
+
+/* Heading */
+
+.title {
+  color: #e91e63;
+
+  font-size: clamp(36px, 10vw, 70px);
+
+  font-weight: bold;
+
+  margin-bottom: 35px;
+
+  animation: titleAppear 1.2s ease-out;
+}
+
+/* First hearts */
+
+.love {
+  color: #e91e63;
+
+  font-size: clamp(55px, 15vw, 100px);
+
+  line-height: 1;
+
+  margin: 5px;
+
+  animation: heartBeat 1.6s ease-in-out infinite;
+}
+
+.love2 {
+  animation-delay: .5s;
+}
+
+/* Next button */
+
+.next {
+  display: inline-block;
+
+  margin-top: 35px;
+
+  padding: 14px 38px;
+
+  border-radius: 50px;
+
+  background: #e91e63;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 8px 25px rgba(233,30,99,.3);
+
+  animation: buttonAppear 1s ease-out 1s both;
+
+  transition: transform .2s ease;
+}
+
+.next:active {
+  transform: scale(.94);
+}
+
+@media (hover:hover) {
+  .next:hover {
+    transform: translateY(-3px) scale(1.04);
+  }
+}
+
+/* To my one and only */
+
+.message {
+  margin-top: 35px;
+
+  color: #7d4058;
+
+  font-size: clamp(22px, 6vw, 38px);
+
+  font-style: italic;
+
+  animation: messageAppear 1.2s ease-out 1.4s both;
+}
+
+.bottom-heart {
+  margin-top: 15px;
+
+  color: #e91e63;
+
+  font-size: clamp(35px, 10vw, 60px);
+
+  animation:
+    heartBeat 1.6s ease-in-out infinite;
+}
+
+/* Animations */
+
+@keyframes titleAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heartBeat {
+
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+@keyframes buttonAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatHeart {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg)
+      scale(.7);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: .6;
+  }
+
+  80% {
+    opacity: .6;
+  }
+
+  100% {
+    transform:
+      translateY(-115svh)
+      rotate(360deg)
+      scale(1.1);
+
+    opacity: 0;
+  }
+}
+
+/* Small phones */
+
+@media (max-height: 650px) {
+
+  .title {
+    font-size: 34px;
+    margin-bottom: 18px;
+  }
+
+  .love {
+    font-size: 55px;
+  }
+
+  .next {
+    margin-top: 20px;
+    padding: 11px 28px;
+    font-size: 16px;
+  }
+
+  .message {
+    margin-top: 20px;
+    font-size: 23px;
+  }
+
+  .bottom-heart {
+    font-size: 40px;
+  }
+}
+
+/* Landscape */
+
+@media (orientation: landscape)
+       and (max-height: 600px) {
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .love {
+    font-size: 45px;
+  }
+
+  .next {
+    margin-top: 10px;
+    padding: 9px 25px;
+  }
+
+  .message {
+    margin-top: 10px;
+    font-size: 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating background hearts -->
+
+<div class="heart heart1">♡</div>
+<div class="heart heart2">♡</div>
+<div class="heart heart3">♡</div>
+<div class="heart heart4">♡</div>
+
+
+<main class="container">
+
+  <h1 class="title">
+    Happy Birthday Kiran ❤️
+  </h1>
+
+
+  <div class="love">
+    ♡
+  </div>
+
+  <div class="love love2">
+    ♡
+  </div>
+
+
+  <a href="page3.html" class="next">
+    Next
+  </a>
+
+
+  <div class="message">
+    To my one and only
+  </div>
+
+
+  <div class="bottom-heart">
+    ♡
+  </div>
+
+</main>
+
+</body>
+</html>
