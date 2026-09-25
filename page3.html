@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Three Little Surprises ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100svh;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(135deg,#fff5f9,#ffe2ed,#ffd8e7);
+  color: #704357;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  min-height: 100svh;
+  padding: 30px 16px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  color: #e91e63;
+  font-size: clamp(30px,8vw,52px);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #8a5268;
+  font-size: clamp(15px,4.5vw,20px);
+  margin-bottom: 30px;
+}
+
+/* BOXES */
+
+.boxes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.box {
+  width: clamp(90px,29vw,145px);
+  height: 125px;
+  background: #e91e63;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(233,30,99,.25);
+  transition: .3s;
+}
+
+.box:active {
+  transform: scale(.93);
+}
+
+.box.opened {
+  transform: translateY(-6px);
+  background: #d81b60;
+}
+
+.ribbon-v {
+  position: absolute;
+  width: 18px;
+  height: 100%;
+  background: #ffd4e1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ribbon-h {
+  position: absolute;
+  width: 100%;
+  height: 18px;
+  background: #ffd4e1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bow {
+  position: absolute;
+  top: -23px;
+  font-size: 40px;
+  z-index: 5;
+}
+
+.number {
+  color: white;
+  font: bold 42px Arial,sans-serif;
+  z-index: 6;
+}
+
+/* SURPRISE CARD */
+
+.surprise {
+  display: none;
+  width: min(94vw,560px);
+  margin-top: 30px;
+  padding: 22px 18px;
+  background: rgba(255,255,255,.82);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(120,50,80,.13);
+  animation: appear .5s ease;
+}
+
+.surprise.show {
+  display: block;
+}
+
+.photo {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 20px rgba(70,30,50,.15);
+}
+
+.caption {
+  font-size: clamp(18px,4.8vw,24px);
+  line-height: 1.55;
+}
+
+.caption strong {
+  color: #e91e63;
+}
+
+/* TIMELINE */
+
+.timeline-title {
+  color: #e91e63;
+  font-size: clamp(25px,7vw,36px);
+  margin-bottom: 25px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-art {
+  width: min(80vw,300px);
+  height: 190px;
+  border-radius: 20px;
+  background: #fff0f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 95px;
+  box-shadow: 0 7px 18px rgba(100,40,70,.12);
+}
+
+.timeline-photo {
+  width: min(90vw,430px);
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 7px 18px rgba(100,40,70,.15);
+}
+
+.timeline-caption {
+  margin-top: 12px;
+  font-size: clamp(17px,4.5vw,23px);
+  line-height: 1.45;
+}
+
+.timeline-caption strong {
+  color: #e91e63;
+}
+
+/* FINAL */
+
+.final-button {
+  display: none;
+  margin-top: 28px;
+  padding: 15px 32px;
+  border-radius: 50px;
+  background: #e91e63;
+  color: white;
+  text-decoration: none;
+  font: bold 17px Arial,sans-serif;
+  box-shadow: 0 8px 22px rgba(233,30,99,.3);
+}
+
+.final-button.show {
+  display: inline-block;
+  animation: appear .6s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media(max-width:380px) {
+  .box {
+    height: 105px;
+  }
+
+  .number {
+    font-size: 35px;
+  }
+
+  .bow {
+    font-size: 33px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+<h1 class="title">Three Little Surprises 🎁</h1>
+
+<p class="subtitle">
+Open them one by one, love ❤️
+</p>
+
+
+<!-- THREE BOXES -->
+
+<div class="boxes">
+
+  <div class="box" id="box1" onclick="openBox(1)">
+    <div class="bow">🎀</div>
+    <div class="ribbon-v"></div>
+    <div class="ribbon-h"></div>
+    <div class="number">1</div>
+  </div>
+
+  <div class="box" id="box2" onclick="openBox(2)">
+    <div class="bow">🎀</div>
+    <div class="ribbon-v"></div>
+    <div class="ribbon-h"></div>
+    <div class="number">2</div>
+  </div>
+
+  <div class="box" id="box3" onclick="openBox(3)">
+    <div class="bow">🎀</div>
+    <div class="ribbon-v"></div>
+    <div class="ribbon-h"></div>
+    <div class="number">3</div>
+  </div>
+
+</div>
+
+
+<!-- BOX 1 -->
+
+<section id="surprise1" class="surprise">
+
+  <img
+    class="photo"
+    src="file_000000003b4082119c66c81bfa8f2ec5.png"
+    alt="Childhood photo">
+
+  <p class="caption">
+
+    <strong>Happy 25, Kid! ❤️</strong>
+
+    <br><br>
+
+    Look at the little you... 🥹
+
+    <br>
+
+    So full of dreams, innocence,
+    joy and so much love. ❤️
+
+  </p>
+
+</section>
+
+
+<!-- BOX 2 -->
+
+<section id="surprise2" class="surprise">
+
+  <img
+    class="photo"
+    src="20260606_163425.heic"
+    alt="His current photo">
+
+  <p class="caption">
+
+    <strong>Happy Birthday, love. ❤️</strong>
+
+    <br><br>
+
+    May your journey be filled with light,
+    laughter, and everything your heart
+    dreams of.
+
+    <br><br>
+
+    I love u endlessly &lt;3!
+
+  </p>
+
+</section>
+
+
+<!-- BOX 3 -->
+
+<section id="surprise3" class="surprise">
+
+  <h2 class="timeline-title">
+    Our Timeline ❤️
+  </h2>
+
+  <div class="timeline">
+
+
+    <!-- CHILDHOOD -->
+
+    <div class="timeline-item">
+
+      <div class="timeline-art">
+        👦🏻 💕 👧🏻
+      </div>
+
+      <p class="timeline-caption">
+
+        <strong>
+          What if we met earlier...?
+        </strong>
+
+        <br>
+
+        Maybe our little selves
+        would have found each other sooner. ❤️
+
+      </p>
+
+    </div>
+
+
+    <!-- PRESENT -->
+
+    <div class="timeline-item">
+
+      <img
+        class="timeline-photo"
+        src="20260711_121824.heic"
+        alt="Our current photo">
+
+      <p class="timeline-caption">
+
+        <strong>
+          This is us, right now. ❤️
+        </strong>
+
+        <br>
+
+        Two people who somehow found
+        each other in this life.
+
+      </p>
+
+    </div>
+
+
+    <!-- FUTURE -->
+
+    <div class="timeline-item">
+
+      <div class="timeline-art">
+        👴🏻 ❤️ 👵🏻
+      </div>
+
+      <p class="timeline-caption">
+
+        <strong>
+          And what if we fix everything
+          and stay...?
+        </strong>
+
+        <br>
+
+        What if we choose each other,
+        grow together, and grow old together? ❤️
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+  <p style="
+    margin-top:28px;
+    color:#e91e63;
+    font-size:clamp(19px,5vw,27px);
+    line-height:1.5;
+    font-style:italic;
+  ">
+
+    Maybe our story still has
+    many beautiful chapters left. ♡
+
+  </p>
+
+</section>
+
+
+<a
+  id="finalButton"
+  class="final-button"
+  href="page4.html">
+
+  Final Surprise 🎁❤️
+
+</a>
+
+</main>
+
+
+<script>
+
+let openedBoxes = [];
+
+function openBox(number) {
+
+  const box =
+    document.getElementById("box" + number);
+
+  const surprise =
+    document.getElementById("surprise" + number);
+
+
+  if (!openedBoxes.includes(number)) {
+
+    openedBoxes.push(number);
+
+    box.classList.add("opened");
+
+  }
+
+
+  document
+    .querySelectorAll(".surprise")
+    .forEach(function(item) {
+
+      item.classList.remove("show");
+
+    });
+
+
+  surprise.classList.add("show");
+
+
+  if (openedBoxes.length === 3) {
+
+    document
+      .getElementById("finalButton")
+      .classList.add("show");
+
+  }
+
+
+  setTimeout(function() {
+
+    surprise.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  },100);
+
+}
+
+</script>
+
+</body>
+</html>
